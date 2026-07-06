@@ -1,0 +1,19 @@
+hydra:
+  output_subdir: null
+  run:  
+    dir: .
+
+# prompt for video content analysis
+model_id: google/gemma-3-4b-it
+model_short_name: gemma4b
+dataset: FakeTT
+task: inpredict
+batch_size: 1
+num_frames: 8
+sample_strategy: uniform
+para: 
+  temperature: 0.000001
+  use_api: false
+
+top_k: 8
+reference_name: coverage_0.4_reference_20

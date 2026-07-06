@@ -1,0 +1,23 @@
+hydra:
+  output_subdir: null
+  run:  
+    dir: .
+
+prompt: 
+
+model_id: Qwen/Qwen3-VL-32B-Instruct
+model_short_name: qwen
+dataset: FVC
+task: manage
+data_split: train  # 'train' or 'test'
+batch_size: 1
+para:
+  use_api: true  # 设置为true则调用API，false或不设置则使用本地模型
+size: 40
+  # temperature: 2.0
+  # do_sample: True
+  # top_p: 1
+  # num_return_sequences: 20
+  # temperature: 2.0
+reference_name: coverage_0.5_reference_40
+insight_name: coverage_0.5

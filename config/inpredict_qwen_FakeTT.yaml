@@ -1,0 +1,19 @@
+hydra:
+  output_subdir: null
+  run:
+    dir: .
+
+# prompt for video content analysis
+model_id: Qwen/Qwen3-VL-32B-Instruct
+model_short_name: qwen
+dataset: FakeTT
+task: inpredict
+data_split: train  # 'train' or 'test'
+batch_size: 1
+num_frames: 16  # 视频帧数，默认8帧
+sample_strategy: sequential  # uniform: 间隔2帧采样 (0,2,4,6...), sequential: 顺序采样
+para: 
+  temperature: 0.000001
+  use_api: true  # 设置为true则调用API，false或不设置则使用本地模型
+top_k: 8
+reference_name: coverage_0.4_reference_20

@@ -1,0 +1,27 @@
+hydra:
+  output_subdir: null
+  run:  
+    dir: .
+
+prompt: Your task is to determine whether this video content is fake or authentic. Detect if this video is fake/manipulated. You must only return '1' for fake, or '0' for genuine.
+# Your task is to determine whether this video content is fake or authentic. Please carefully analyze the video frames and accompanying text (OCR text, transcript) to detect any signs of manipulation, deepfakes, or misleading information. Consider visual inconsistencies, unnatural movements, and content credibility. You must only return '1' for fake, or '0' for authentic.
+# model_id: Qwen/Qwen3-VL-8B-Instruct
+model_id: llava-hf/llava-v1.6-mistral-7b-hf #  
+model_short_name: llava
+task: label
+num_frames: 8  # 视频帧数，默认8帧
+sample_strategy: uniform  # uniform: 间隔2帧采样 (0,2,4,6...), sequential: 顺序采样
+para:
+  do_sample: True
+  use_api: false  # 设置为true则调用API，false或不设置则使用本地模型
+  # 显存优化参数 (针对34B模型)
+  load_in_4bit: true         # 使用4bit量化（从8bit改为4bit可节省约50%显存）
+dataset: FakeTT
+data:
+  split: train
+
+# 显存优化配置
+max_image_size: 336        # 图像最大分辨率（降低可节省显存，336是LLaVA推荐尺寸）
+max_frames: 8              # 最大帧数（从8帧减少到4帧可节省50%图像显存）
+memory_cleanup_interval: 5 # 每1个样本清理一次显存（更频繁的清理）
+label_name: label_pred
