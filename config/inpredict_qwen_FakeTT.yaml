@@ -1,0 +1,17 @@
+hydra:
+  output_subdir: null
+  run:
+    dir: .
+model_id: Qwen/Qwen3-VL-32B-Instruct
+model_short_name: qwen
+dataset: FakeTT
+task: inpredict
+data_split: train
+batch_size: 1
+num_frames: 16
+sample_strategy: sequential
+para: 
+  temperature: 0.000001
+  use_api: true
+top_k: 8
+reference_name: coverage_0.4_reference_20

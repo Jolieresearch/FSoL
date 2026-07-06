@@ -1,0 +1,16 @@
+hydra:
+  output_subdir: null
+  run:  
+    dir: .
+prompt: 
+model_id: Qwen/Qwen3-VL-32B-Instruct
+model_short_name: qwen
+dataset: FVC
+task: manage
+data_split: train
+batch_size: 1
+para:
+  use_api: true
+size: 40
+reference_name: coverage_0.5_reference_40
+insight_name: coverage_0.5

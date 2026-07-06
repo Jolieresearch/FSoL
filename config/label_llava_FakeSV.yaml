@@ -1,0 +1,21 @@
+hydra:
+  output_subdir: null
+  run:  
+    dir: .
+prompt: Your task is to determine whether this video content is fake or authentic. Please carefully analyze the video frames and accompanying text (OCR text, transcript) to detect any signs of manipulation, deepfakes, or misleading information. Consider visual inconsistencies, unnatural movements, and content credibility. You must only return '1' for fake, or '0' for authentic.
+model_id: llava-hf/llava-v1.6-mistral-7b-hf
+model_short_name: llava
+task: label
+num_frames: 8
+sample_strategy: uniform
+para:
+  do_sample: True
+  use_api: false
+  load_in_4bit: true
+dataset: FakeSV
+data:
+  split: train
+max_image_size: 336
+max_frames: 8
+memory_cleanup_interval: 5
+label_name: label_pred

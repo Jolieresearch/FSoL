@@ -1,0 +1,18 @@
+hydra:
+  output_subdir: null
+  run:  
+    dir: .
+prompt: 
+model_id: Qwen/Qwen3-VL-32B-Instruct
+model_short_name: qwen
+dataset: FakeTT
+task: insight
+data_split: train
+num_frames: 8
+sample_strategy: uniform
+para: 
+  use_api: true
+batch_size: 1
+threshold: 0.9
+pairs_name: pairs_coverage_0.4
+insight_name: coverage_0.4

@@ -1,0 +1,20 @@
+hydra:
+  output_subdir: null
+  run:  
+    dir: .
+prompt: Your task is to determine whether this video content is fake or authentic. Please carefully analyze the video frames and accompanying text (OCR text, transcript) to detect any signs of manipulation, deepfakes, or misleading information. Consider visual inconsistencies, unnatural movements, and content credibility. You must only return '1' for fake, or '0' for authentic.
+model_id: Qwen/Qwen3-VL-32B-Instruct
+model_short_name: qwen
+task: label
+num_frames: 8
+sample_strategy: uniform
+para:
+  do_sample: True
+  use_api: true
+dataset: FVC
+data:
+  split: train
+max_image_size: 512
+max_frames: 16
+memory_cleanup_interval: 5
+label_name: label_pred

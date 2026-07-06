@@ -1,0 +1,21 @@
+hydra:
+  output_subdir: null
+  run:  
+    dir: .
+prompt: Your task is to determine whether this video content is fake or authentic. Detect if this video is fake/manipulated. You must only return '1' for fake, or '0' for genuine.
+model_id: google/gemma-3-27b-it
+model_short_name: gemma27b
+task: label
+num_frames: 4
+sample_strategy: uniform
+para:
+  do_sample: false
+  use_api: false
+  load_in_4bit: true
+dataset: FVC
+data:
+  split: train
+max_image_size: 112
+max_frames: 4
+memory_cleanup_interval: 5
+label_name: label_pred
